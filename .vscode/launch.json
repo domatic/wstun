@@ -1,0 +1,33 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "wstun server",
+      "program": "${workspaceFolder}/bin/wstun.js",
+      "args": ["-r", "-s", "9090"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "wstun client",
+      "program": "${workspaceFolder}/bin/wstun.js",
+      "args": [
+        "-r0:192.168.1.2:4999",
+        "-p",
+        "{\"foo\":\"bar\"}",
+        "--key",
+        "../sample-key.pem",
+        "--cert",
+        "../sample-crt.pem",
+        "--ca",
+        "../sample-ca-crt.pem",
+        "wss://127.0.0.1:9090"
+      ]
+    }
+  ]
+}
